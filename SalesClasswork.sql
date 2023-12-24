@@ -31,3 +31,17 @@ foreign key (projectid) references projects (id),
 constraint fk_projectemplyees_employees
 foreign key (Employeeid) references employees (id)
 )
+create table JobOrders (
+id int primary key identity,
+Employeeid int,
+projectid int,
+[description] text,
+OrderDateTime datetime,
+Quantity int,
+price decimal(5,2),
+constraint fk_joborders_projects
+foreign key (projectid) references projects (id),
+
+constraint fk_joborder_employees
+foreign key (Employeeid) references employees (id)
+)
